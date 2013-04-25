@@ -1,0 +1,12 @@
+Taiga (Tumlee's Allegro-Integrated Game Assembler) is an
+Allegro-based game engine and framework written by
+Thomas "Tumlee" Gann. It is designed to streamline a lot
+of the work that usually goes into making games with Allegro 5.
+
+It includes such features as layered drawing, actor-based
+game logic, and a system of handling input that makes checking
+the exact state of any key or mousebutton extremely simple.
+
+Although it is distributed free of charge, it would be
+nice to give me a little credit if you do decide to use
+it for one of your projects!

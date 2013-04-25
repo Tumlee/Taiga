@@ -1,0 +1,2 @@
+This is where TTF fonts are loaded from when using the load_font() function.
+This file can be safely deleted.

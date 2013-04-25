@@ -1,0 +1,2 @@
+This is where graphics are loaded from when using the load_image() function.
+This file can be safely deleted if you no longer need it.

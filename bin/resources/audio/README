@@ -1,0 +1,2 @@
+This is where audio files are loaded from when using the load_sample() function.
+This file can be safely deleted.
