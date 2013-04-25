@@ -6,6 +6,16 @@
 #include <vector>
 #include <cstdlib>
 
+//=====================================================================
+//In order to facilitate layered drawing (a system of drawing where
+//certain objects are drawn on top of others in a well-defined order),
+//we can't simply draw something onto the screen the moment we know
+//it needs to be drawn. Instead, we must send a message to the renderer
+//to let it know to draw something when it can get around to it.
+//
+//This is what a TaigaDrawer is for, and its draw() function is
+//basically the instructions on HOW to draw a particular concept.
+//=====================================================================
 class TaigaDrawer
 {
 	public:
@@ -13,6 +23,12 @@ class TaigaDrawer
 		virtual void draw() = 0;
 };
 
+//=======================================================================
+//A TaigaLayer contains all of the TaigaDrawers registered on that layer.
+//A TaigaLayerList is just a collection of enumerated layers, starting
+//with 0. Things on layer 0 are drawn first (in the back), while things
+//on the highest layer are drawn last (in front).
+//=======================================================================
 class TaigaLayer
 {
 	private:
@@ -51,6 +67,7 @@ class TaigaSprite : public TaigaDrawer
 		virtual void draw();
 };
 
+//And extended TaigaSprite which can be scaled and rotated.
 class TaigaSpriteEx : public TaigaDrawer
 {
 	public:
@@ -65,6 +82,7 @@ class TaigaSpriteEx : public TaigaDrawer
 		virtual void draw();
 };
 
+//A TaigaDrawer which clears the screen to a given color.
 class TaigaClear : public TaigaDrawer
 {
 	public:
@@ -74,6 +92,7 @@ class TaigaClear : public TaigaDrawer
 		virtual void draw();
 };
 
+//This TaigaDrawer can be used to write text to the screen.
 class TaigaText : public TaigaDrawer
 {
 	public:
