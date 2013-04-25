@@ -93,16 +93,6 @@ void TaigaLayerList::set_layercam(TaigaLayerCam cam, int layernum)
 	layers[layernum].cam = cam;
 }
 
-int image_width(ALLEGRO_BITMAP* image)
-{
-	return image ? al_get_bitmap_width(image) : 0;
-}
-
-int image_height(ALLEGRO_BITMAP* image)
-{
-	return image ? al_get_bitmap_height(image) : 0;
-}
-
 //===========================================
 //Member functions for the TaigaSprite class.
 //===========================================
@@ -192,4 +182,17 @@ void TaigaText::draw()
 {
 	if(font)
 		al_draw_text(font, color, x, y, flags, text.data());
+}
+
+//==========================================
+//Miscellaneous rendering-related functions.
+//==========================================
+int image_width(ALLEGRO_BITMAP* image)
+{
+	return image ? al_get_bitmap_width(image) : 0;
+}
+
+int image_height(ALLEGRO_BITMAP* image)
+{
+	return image ? al_get_bitmap_height(image) : 0;
 }
