@@ -10,8 +10,7 @@
 class TaigaActor
 {
 	public:
-	//The TaigaState that the actor was spawned in. There is
-	//no good reason to access this feild directly.
+	//The TaigaState that the actor was spawned in.
 		TaigaState* state;
 
 	//Every spawnable actor must have a tick() function defined.
