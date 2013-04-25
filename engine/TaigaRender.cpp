@@ -110,7 +110,7 @@ TaigaSpriteEx::TaigaSpriteEx()
 	angle = 0;
 	flipflags = 0;
 	centerx = centery = 0;
-	scalex = scaley = 0;
+	scalex = scaley = 1;
 }
 
 TaigaSpriteEx::TaigaSpriteEx(ALLEGRO_BITMAP* spr, int xx, int yy, int flags)
@@ -121,7 +121,7 @@ TaigaSpriteEx::TaigaSpriteEx(ALLEGRO_BITMAP* spr, int xx, int yy, int flags)
 	flipflags = flags;
 	angle = 0;
 	centerx = centery = 0;
-	scalex = scaley = 0;
+	scalex = scaley = 1;
 }
 
 void TaigaSpriteEx::draw()
