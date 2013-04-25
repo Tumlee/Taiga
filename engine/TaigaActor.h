@@ -12,7 +12,7 @@ class TaigaActor
 	public:
 	//The TaigaState that the actor was spawned in. There is
 	//no good reason to access this feild directly.
-		TaigaState* container;
+		TaigaState* state;
 
 	//Every spawnable actor must have a tick() function defined.
 	//You should return false if you want the actor to be deleted
@@ -33,12 +33,12 @@ class TaigaActor
 	//========================================================================
 		template <class T> T* first_actor()
 		{
-			return container->first_actor<T>();
+			return state->first_actor<T>();
 		}
 
 		template <class T> T* next_actor()
 		{
-			return container->next_actor<T>();
+			return state->next_actor<T>();
 		}
 };
 

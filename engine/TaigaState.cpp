@@ -165,7 +165,7 @@ void TaigaState::spawn(TaigaActor* actor)
 		fatal_error("Tried to spawn a null actor.");
 
 	actors.push_back(actor);
-	actor->container = this;
+	actor->state = this;
 
 	return;
 }
