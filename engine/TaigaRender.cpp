@@ -1,5 +1,20 @@
 #include "TaigaRender.h"
 
+//=============================================
+//Member functions for the TaigaLayerCam class.
+//=============================================
+TaigaLayerCam::TaigaLayerCam()
+{
+	x = 0;
+	y = 0;
+}
+
+TaigaLayerCam::TaigaLayerCam(int xx, int yy)
+{
+	x = xx;
+	y = yy;
+}
+
 //==========================================
 //Member functions for the TaigaLayer class.
 //==========================================
@@ -12,7 +27,11 @@ void TaigaLayer::add_entry(TaigaDrawer* entry)
 void TaigaLayer::draw()
 {
 	for(auto entry : entries)
+	{
+		entry->x -= cam.x;
+		entry->y -= cam.y;
 		entry->draw();
+	}
 }
 
 void TaigaLayer::clear()
@@ -64,6 +83,14 @@ void TaigaLayerList::resize(size_t count)
 
 	for(size_t i = 0; i < count; i++)
 		layers.emplace_back(TaigaLayer());
+}
+
+void TaigaLayerList::set_layercam(TaigaLayerCam cam, int layernum)
+{
+	if((size_t)layernum >= layers.size())
+		return;
+
+	layers[layernum].cam = cam;
 }
 
 int image_width(ALLEGRO_BITMAP* image)

@@ -23,6 +23,17 @@ class TaigaDrawer
 		virtual void draw() = 0;
 };
 
+//A camera that can be applied to a layer. It essentially
+//adjusts the x and y positions of TaigaDrawers.
+class TaigaLayerCam
+{
+	public:
+		int x, y;
+
+		TaigaLayerCam();
+		TaigaLayerCam(int xx, int yy);
+};
+
 //=======================================================================
 //A TaigaLayer contains all of the TaigaDrawers registered on that layer.
 //A TaigaLayerList is just a collection of enumerated layers, starting
@@ -38,6 +49,8 @@ class TaigaLayer
 		void add_entry(TaigaDrawer* entry);
 		void draw();
 		void clear();
+
+		TaigaLayerCam cam;
 };
 
 class TaigaLayerList
@@ -52,6 +65,8 @@ class TaigaLayerList
 		void draw();
 		void clear();
 		void resize(size_t count);
+
+		void set_layercam(TaigaLayerCam cam, int layernum);
 };
 
 //A basic TaigaDrawer that draws a sprite, so users don't have to write

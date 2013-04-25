@@ -63,6 +63,9 @@ class TaigaState
 	//game_startup()
 		void resize_layers(size_t count);
 
+	//Sets a camera position for the given layer.
+		void set_layercam(TaigaLayerCam cam, int layernum);
+
 	//Sets the target bitmap back to being the display backbuffer.
 	//This needs to be called before the next render after targeting
 	//a different bitmap.

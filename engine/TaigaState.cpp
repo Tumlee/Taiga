@@ -185,6 +185,11 @@ void TaigaState::resize_layers(size_t count)
 	layerlist.resize(count);
 }
 
+void TaigaState::set_layercam(TaigaLayerCam cam, int layernum)
+{
+	layerlist.set_layercam(cam, layernum);
+}
+
 void TaigaState::retarget_display()
 {
 	al_set_target_bitmap(al_get_backbuffer(display));
