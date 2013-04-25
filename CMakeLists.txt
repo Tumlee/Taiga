@@ -17,5 +17,5 @@ aux_source_directory("${PROJECT_SOURCE_DIR}/game" GAME_SOURCES)
 
 #Binary
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")
-add_executable(taiga ${ENGINE_SOURCES} ${GAME_SOURCES})
-target_link_libraries(taiga allegro allegro_main allegro_image allegro_audio allegro_acodec allegro_physfs allegro_dialog allegro_font allegro_ttf physfs)
+add_executable(${CMAKE_PROJECT_NAME} ${ENGINE_SOURCES} ${GAME_SOURCES})
+target_link_libraries(${CMAKE_PROJECT_NAME} allegro allegro_main allegro_image allegro_audio allegro_acodec allegro_physfs allegro_dialog allegro_font allegro_ttf physfs)
