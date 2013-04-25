@@ -9,6 +9,7 @@
 class TaigaDrawer
 {
 	public:
+		int x, y;
 		virtual void draw() = 0;
 };
 
@@ -43,7 +44,7 @@ class TaigaSprite : public TaigaDrawer
 {
 	public:
 		ALLEGRO_BITMAP* sprite;
-		int x, y, flipflags;
+		int flipflags;
 
 		TaigaSprite()
 		{
@@ -71,7 +72,7 @@ class TaigaSpriteEx : public TaigaDrawer
 {
 	public:
 		ALLEGRO_BITMAP* sprite;
-		int x, y, flipflags;
+		int flipflags;
 		float angle;
 		float centerx, centery;
 		float scalex, scaley;
@@ -130,7 +131,6 @@ class TaigaText : public TaigaDrawer
 	public:
 		ALLEGRO_FONT* font;
 		std::string text;
-		int x, y;
 		int flags;
 		ALLEGRO_COLOR color;
 
