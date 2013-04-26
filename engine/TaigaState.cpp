@@ -1,7 +1,7 @@
-#include "Taiga.h"
-#include "TaigaState.h"
-#include "TaigaInput.h"
-#include "TaigaActor.h"
+#include "Taiga.hpp"
+#include "TaigaState.hpp"
+#include "TaigaInput.hpp"
+#include "TaigaActor.hpp"
 
 #include "physfs.h"
 

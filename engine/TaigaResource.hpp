@@ -1,7 +1,7 @@
 #ifndef TAIGA_RPAK
 #define TAIGA_RPAK
 
-#include "Taiga.h"
+#include "Taiga.hpp"
 
 #include <string>
 

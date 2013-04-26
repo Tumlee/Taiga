@@ -1,4 +1,4 @@
-#include "TaigaInput.h"
+#include "TaigaInput.hpp"
 
 TaigaKeyboard key;
 TaigaMouse mouse;

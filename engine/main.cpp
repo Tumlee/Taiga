@@ -1,4 +1,4 @@
-#include "TaigaState.h"
+#include "TaigaState.hpp"
 
 TaigaInitSettings game_bootup();
 

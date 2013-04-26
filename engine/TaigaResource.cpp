@@ -1,5 +1,5 @@
-#include "Taiga.h"
-#include "TaigaResource.h"
+#include "Taiga.hpp"
+#include "TaigaResource.hpp"
 
 using std::string;
 

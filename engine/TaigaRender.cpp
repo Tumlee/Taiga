@@ -1,4 +1,4 @@
-#include "TaigaRender.h"
+#include "TaigaRender.hpp"
 
 //=============================================
 //Member functions for the TaigaLayerCam class.

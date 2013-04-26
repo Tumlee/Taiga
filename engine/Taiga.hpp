@@ -14,7 +14,7 @@
 
 //Pretty much all Taiga subsystems should have access
 //to the fatal_error() function.
-#include "TaigaError.h"
+#include "TaigaError.hpp"
 
 extern char** global_argv;
 extern int global_argc;

@@ -1,4 +1,4 @@
-#include "TaigaSound.h"
+#include "TaigaSound.hpp"
 
 void TaigaPlayMusic(ALLEGRO_SAMPLE* music, float volume, ALLEGRO_PLAYMODE loopmode)
 {

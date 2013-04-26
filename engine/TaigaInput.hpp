@@ -1,7 +1,7 @@
 #ifndef TAIGA_INPUT
 #define TAIGA_INPUT
 
-#include "Taiga.h"
+#include "Taiga.hpp"
 #include <vector>
 
 //An enum to keep track of the state of a key.

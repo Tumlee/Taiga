@@ -1,5 +1,5 @@
-#include "TaigaActor.h"
-#include "TaigaState.h"
+#include "TaigaActor.hpp"
+#include "TaigaState.hpp"
 
 void TaigaActor::draw(TaigaDrawer* drawer, int layer)
 {

@@ -3,8 +3,8 @@
 
 #include <list>
 
-#include "Taiga.h"
-#include "TaigaRender.h"
+#include "Taiga.hpp"
+#include "TaigaRender.hpp"
 
 class TaigaActor;
 
