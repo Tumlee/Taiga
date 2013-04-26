@@ -8,8 +8,6 @@
 
 class TaigaActor;
 
-//Note: In future versions of this engine, the framerate may be
-//separate from the actual tic rate.
 class TaigaInitSettings
 {
 	public:
