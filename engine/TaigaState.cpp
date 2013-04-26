@@ -10,6 +10,7 @@ using std::string;
 void game_start(TaigaState* state);
 void game_posttick(TaigaState* state);
 void game_pretick(TaigaState* state);
+void game_handle_event(TaigaState* state, ALLEGRO_EVENT event);
 
 TaigaState::TaigaState()
 {
@@ -113,15 +114,17 @@ void TaigaState::run()
         	tick();
             redraw = true;
         }
+        else if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == frametimer)
+		{
+			frameokay = true;
+		}
+		else
+		{
+			game_handle_event(this, ev);
+		}
 
         if(quitting)
 			break;
-
-        if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == frametimer)
-			frameokay = true;
-
-        if(ev.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-            break;
 
         if(redraw && al_is_event_queue_empty(event_queue) && frameokay)
         {

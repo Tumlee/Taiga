@@ -52,3 +52,14 @@ void game_pretick(TaigaState* state)
 void game_posttick(TaigaState* state)
 {
 }
+
+//==========================================================
+//Most Allegro events caught by the TaigaState are passed to
+//this function so you can handle certain events yourself.
+//==========================================================
+void game_handle_event(TaigaState* state, ALLEGRO_EVENT event)
+{
+	//By default, quit the game if the X button was clicked.
+	if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
+		state->quit();
+}
