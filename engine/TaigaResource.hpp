@@ -1,5 +1,5 @@
-#ifndef TAIGA_RPAK
-#define TAIGA_RPAK
+#ifndef TAIGA_RESOURCE
+#define TAIGA_RESOURCE
 
 #include "Taiga.hpp"
 
