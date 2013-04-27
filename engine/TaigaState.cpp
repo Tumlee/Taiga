@@ -55,6 +55,7 @@ void TaigaState::init(TaigaInitSettings settings)
 	init_subsystem(al_init_ttf_addon(), "initialize Allegro TTF addon.");
 	init_subsystem(al_install_audio(), "initialize Allegro audio.");
 	init_subsystem(al_init_acodec_addon(), "initialize Allegro audio codec addon.");
+	init_subsystem(al_init_primitives_addon(), "initialize Allegro primitives addon.");
 
 	//Set up the event queue and start up graphics, audio, and input.
     init_subsystem((event_queue = al_create_event_queue()), "create an event queue.");

@@ -22,6 +22,7 @@ set(ALLEGRO_LIBS ${ALLEGRO_LIBS} allegro_audio allegro_acodec)	#Audio plugins.
 set(ALLEGRO_LIBS ${ALLEGRO_LIBS} allegro_physfs)				#Physfs plugin.
 set(ALLEGRO_LIBS ${ALLEGRO_LIBS} allegro_font allegro_ttf)		#Font plugins.
 set(ALLEGRO_LIBS ${ALLEGRO_LIBS} allegro_dialog)				#Dialog box plugin.
+set(ALLEGRO_LIBS ${ALLEGRO_LIBS} allegro_primitives)			#Primitives plugin.
 
 #Binary
 set(EXECUTABLE_OUTPUT_PATH "${PROJECT_SOURCE_DIR}/bin")

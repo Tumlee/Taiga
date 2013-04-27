@@ -11,6 +11,7 @@
 #include <allegro5/allegro_physfs.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
+#include <allegro5/allegro_primitives.h>
 
 //Pretty much all Taiga subsystems should have access
 //to the fatal_error() function.
