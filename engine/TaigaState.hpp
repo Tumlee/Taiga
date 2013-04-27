@@ -1,7 +1,7 @@
 #ifndef TAIGA_STATE
 #define TAIGA_STATE
 
-#include <list>
+#include <vector>
 
 #include "Taiga.hpp"
 #include "TaigaRender.hpp"
@@ -30,8 +30,8 @@ class TaigaState
 		ALLEGRO_TIMER* ticktimer;
 		ALLEGRO_TIMER* frametimer;
 
-		std::list<TaigaActor*> actors;
-		std::list<TaigaActor*>::iterator actorit;
+		std::vector<TaigaActor*> actors;
+		std::vector<TaigaActor*>::iterator actorit;
 
 		TaigaLayerList layerlist;
 		bool quitting;

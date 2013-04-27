@@ -147,16 +147,14 @@ void TaigaState::tick()
 
 	game_pretick(this);
 
-	for(auto& actor : actors)
+	for(size_t i = 0; i < actors.size(); i++)
 	{
-		if(actor->tick() == false)
+		if(actors[i]->tick() == false)
 		{
-			delete actor;
-			actor = nullptr;
+			actors.erase(actors.begin() + i);
+			i--;
 		}
 	}
-
-	actors.remove(nullptr);
 
 	game_posttick(this);
 
