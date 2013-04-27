@@ -162,6 +162,11 @@ void TaigaState::tick()
 	return;
 }
 
+void TaigaState::register_event_source(ALLEGRO_EVENT_SOURCE* source)
+{
+	al_register_event_source(event_queue, source);
+}
+
 void TaigaState::spawn(TaigaActor* actor)
 {
 	if(actor == nullptr)

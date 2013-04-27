@@ -47,6 +47,10 @@ class TaigaState
 	//and should not be called by the user.
 		void init(TaigaInitSettings settings);
 
+	//Registers a new event source so their events can be passed
+	//to the user in game_handle_event()
+		void register_event_source(ALLEGRO_EVENT_SOURCE* source);
+
 	//Spawns a new actor. The actor needs to be allocated
 	//by the user via 'new'. Deletion will be handled
 	//by the TaigaState from there.
