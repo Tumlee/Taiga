@@ -123,4 +123,6 @@ class TaigaText : public TaigaDrawer
 int image_height(ALLEGRO_BITMAP* image);
 int image_width(ALLEGRO_BITMAP* image);
 
+extern TaigaLayerList canvas;
+
 #endif

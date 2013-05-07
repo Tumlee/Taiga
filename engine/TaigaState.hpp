@@ -5,7 +5,6 @@
 
 #include "Taiga.hpp"
 #include "TaigaActorList.hpp"
-#include "TaigaRender.hpp"
 
 class TaigaInitSettings
 {
@@ -29,7 +28,6 @@ class TaigaState
 		ALLEGRO_TIMER* ticktimer;
 		ALLEGRO_TIMER* frametimer;
 
-		TaigaLayerList layerlist;
 		bool quitting;
 
 		void tick();
@@ -46,18 +44,6 @@ class TaigaState
 	//Registers a new event source so their events can be passed
 	//to the user in game_handle_event()
 		void register_event_source(ALLEGRO_EVENT_SOURCE* source);
-
-	//Registers a TaigaDrawer to be drawn on the next render,
-	//on the given layer.
-		void draw(TaigaDrawer* drawer, int layer = -1);
-
-	//Resizes the layer list so there are the given number
-	//of layers. This should only really be called during
-	//game_startup()
-		void resize_layers(size_t count);
-
-	//Sets a camera position for the given layer.
-		void set_layercam(TaigaLayerCam cam, int layernum);
 
 	//Sets the target bitmap back to being the display backbuffer.
 	//This needs to be called before the next render after targeting

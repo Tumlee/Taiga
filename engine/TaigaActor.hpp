@@ -21,7 +21,6 @@ class TaigaActor
 
 	//The following functions only exist so we don't have to call
 	//the container's member functions directly (saving keystrokes).
-		void draw(TaigaDrawer* drawer, int layer = -1);	//See TaigaState::draw()
 		void spawn(TaigaActor* actor);					//See TaigaActorList::spawn()
 
 	//========================================================================

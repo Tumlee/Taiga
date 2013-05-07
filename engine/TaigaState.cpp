@@ -2,6 +2,7 @@
 #include "TaigaState.hpp"
 #include "TaigaInput.hpp"
 #include "TaigaActorList.hpp"
+#include "TaigaRender.hpp"
 
 #include "physfs.h"
 
@@ -111,7 +112,7 @@ void TaigaState::run()
 
         if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == ticktimer)
         {
-			layerlist.clear();
+			canvas.clear();
         	tick();
             redraw = true;
         }
@@ -131,7 +132,7 @@ void TaigaState::run()
         {
             redraw = false;
 			retarget_display();	//Make sure our draws actually end up on the display.
-            layerlist.draw_entries();
+            canvas.draw_entries();
             al_flip_display();
 
             if(frametimer)
@@ -160,21 +161,6 @@ void TaigaState::register_event_source(ALLEGRO_EVENT_SOURCE* source)
 void TaigaState::quit()
 {
 	quitting = true;
-}
-
-void TaigaState::draw(TaigaDrawer* drawer, int layer)
-{
-	layerlist.add(drawer, layer);
-}
-
-void TaigaState::resize_layers(size_t count)
-{
-	layerlist.set_layercount(count);
-}
-
-void TaigaState::set_layercam(TaigaLayerCam cam, int layernum)
-{
-	layerlist.set_layercam(cam, layernum);
 }
 
 void TaigaState::retarget_display()
