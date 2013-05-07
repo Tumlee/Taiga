@@ -46,8 +46,8 @@ class TaigaLayer
 		std::vector<TaigaDrawer*> entries;
 
 	public:
-		void add_entry(TaigaDrawer* entry);
-		void draw();
+		void add(TaigaDrawer* entry);
+		void draw_entries();
 		void clear();
 
 		TaigaLayerCam cam;
@@ -61,10 +61,10 @@ class TaigaLayerList
 	public:
 		TaigaLayerList();
 
-		void add_entry(TaigaDrawer* entry, int layernum = -1);
-		void draw();
+		void add(TaigaDrawer* entry, int layernum = -1);
+		void draw_entries();
 		void clear();
-		void resize(size_t count);
+		void set_layercount(size_t count);
 
 		void set_layercam(TaigaLayerCam cam, int layernum);
 };

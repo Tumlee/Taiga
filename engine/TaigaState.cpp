@@ -131,7 +131,7 @@ void TaigaState::run()
         {
             redraw = false;
 			retarget_display();	//Make sure our draws actually end up on the display.
-            layerlist.draw();
+            layerlist.draw_entries();
             al_flip_display();
 
             if(frametimer)
@@ -164,12 +164,12 @@ void TaigaState::quit()
 
 void TaigaState::draw(TaigaDrawer* drawer, int layer)
 {
-	layerlist.add_entry(drawer, layer);
+	layerlist.add(drawer, layer);
 }
 
 void TaigaState::resize_layers(size_t count)
 {
-	layerlist.resize(count);
+	layerlist.set_layercount(count);
 }
 
 void TaigaState::set_layercam(TaigaLayerCam cam, int layernum)

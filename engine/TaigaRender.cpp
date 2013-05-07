@@ -18,13 +18,13 @@ TaigaLayerCam::TaigaLayerCam(int xx, int yy)
 //==========================================
 //Member functions for the TaigaLayer class.
 //==========================================
-void TaigaLayer::add_entry(TaigaDrawer* entry)
+void TaigaLayer::add(TaigaDrawer* entry)
 {
 	if(entry)
 		entries.push_back(entry);
 }
 
-void TaigaLayer::draw()
+void TaigaLayer::draw_entries()
 {
 	for(auto entry : entries)
 	{
@@ -49,10 +49,10 @@ TaigaLayerList::TaigaLayerList()
 {
 	//By default, we have four layers to work with.
 	//In most cases, this should be plenty.
-	resize(4);
+	set_layercount(4);
 }
 
-void TaigaLayerList::add_entry(TaigaDrawer* entry, int layernum)
+void TaigaLayerList::add(TaigaDrawer* entry, int layernum)
 {
 	//-1 has a special meaning, it means the last available layer.
 	if(layernum == -1)
@@ -61,13 +61,13 @@ void TaigaLayerList::add_entry(TaigaDrawer* entry, int layernum)
 	if((size_t)layernum >= layers.size())
 		return;
 
-	layers[layernum].add_entry(entry);
+	layers[layernum].add(entry);
 }
 
-void TaigaLayerList::draw()
+void TaigaLayerList::draw_entries()
 {
 	for(auto layer : layers)
-		layer.draw();
+		layer.draw_entries();
 }
 
 void TaigaLayerList::clear()
@@ -76,7 +76,7 @@ void TaigaLayerList::clear()
 		layer.clear();
 }
 
-void TaigaLayerList::resize(size_t count)
+void TaigaLayerList::set_layercount(size_t count)
 {
 	clear();
 	layers.clear();
