@@ -67,6 +67,7 @@ void TaigaState::init(TaigaInitSettings settings)
 
 	mouse.init();
 	key.init();
+	canvas.target = al_get_backbuffer(display);
 
 	//Set up the tick timer.
 	init_subsystem((ticktimer = al_create_timer(1 / settings.tickrate)), "create the ticktimer.");
@@ -131,7 +132,6 @@ void TaigaState::run()
         if(redraw && al_is_event_queue_empty(event_queue) && frameokay)
         {
             redraw = false;
-			retarget_display();	//Make sure our draws actually end up on the display.
             canvas.draw_entries();
             al_flip_display();
 

@@ -52,6 +52,7 @@ TaigaLayerList::TaigaLayerList()
 	//By default, we have four layers to work with.
 	//In most cases, this should be plenty.
 	set_layercount(4);
+	target = nullptr;
 }
 
 void TaigaLayerList::add(TaigaDrawer* entry, int layernum)
@@ -68,8 +69,20 @@ void TaigaLayerList::add(TaigaDrawer* entry, int layernum)
 
 void TaigaLayerList::draw_entries()
 {
+	if(target == nullptr)
+		return;
+
+	//Save the old target bitmap so we're not messing with the user.
+	ALLEGRO_BITMAP* old_target = al_get_target_bitmap();
+
+	//Make sure we're drawing on our target.
+	al_set_target_bitmap(target);
+
 	for(auto layer : layers)
 		layer.draw_entries();
+
+	//Reset the target bitmap to the old one.
+	al_set_target_bitmap(old_target);
 }
 
 void TaigaLayerList::clear()

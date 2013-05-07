@@ -59,6 +59,8 @@ class TaigaLayerList
 		std::vector<TaigaLayer> layers;
 
 	public:
+		ALLEGRO_BITMAP* target;
+
 		TaigaLayerList();
 
 		void add(TaigaDrawer* entry, int layernum = -1);
