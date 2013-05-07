@@ -12,7 +12,6 @@ class TaigaActor
 	public:
 	//The list the actor was spawned in.
 		TaigaActorList* container;
-		TaigaState* state;
 
 	//Every spawnable actor must have a tick() function defined.
 	//You should return false if you want the actor to be deleted
