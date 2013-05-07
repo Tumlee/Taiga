@@ -8,5 +8,5 @@ void TaigaActor::draw(TaigaDrawer* drawer, int layer)
 
 void TaigaActor::spawn(TaigaActor* actor)
 {
-	state->spawn(actor);
+	container->spawn(actor);
 }

@@ -4,9 +4,8 @@
 #include <vector>
 
 #include "Taiga.hpp"
+#include "TaigaActorList.hpp"
 #include "TaigaRender.hpp"
-
-class TaigaActor;
 
 class TaigaInitSettings
 {
@@ -30,9 +29,6 @@ class TaigaState
 		ALLEGRO_TIMER* ticktimer;
 		ALLEGRO_TIMER* frametimer;
 
-		std::vector<TaigaActor*> actors;
-		std::vector<TaigaActor*>::iterator actorit;
-
 		TaigaLayerList layerlist;
 		bool quitting;
 
@@ -50,11 +46,6 @@ class TaigaState
 	//Registers a new event source so their events can be passed
 	//to the user in game_handle_event()
 		void register_event_source(ALLEGRO_EVENT_SOURCE* source);
-
-	//Spawns a new actor. The actor needs to be allocated
-	//by the user via 'new'. Deletion will be handled
-	//by the TaigaState from there.
-		void spawn(TaigaActor* actor);
 
 	//Registers a TaigaDrawer to be drawn on the next render,
 	//on the given layer.
@@ -82,44 +73,6 @@ class TaigaState
 
 	//Sets the given bitmap as your cursor, with hotspot x, y.
 		void set_cursor(ALLEGRO_BITMAP* image, int x = 0, int y = 0);
-
-	//====================================================================================
-	//The TaigaState::first_actor() function is used to find the first actor of the given
-	//type that is contained in the TaigaState's actor list. It will return nullptr if
-	//there are no actors of the given type.
-	//
-	//Each call to TaigaState::next_actor() after that will get the next actor of the
-	//given type, and when there are no more actors of that type, it will return nullptr.
-	//
-	//For example, if you wanted to operate on all spawned actors of the type "Ball", your
-	//loop would be the following:
-	//
-	//for(Ball* ball = state->first_actor<Ball>(); ball; ball = state->next_actor<Ball>())
-	//====================================================================================
-		template <class T> T* first_actor()
-		{
-			for(actorit = actors.begin(); actorit != actors.end(); actorit++)
-			{
-				if(dynamic_cast<T*>(*actorit) != nullptr)
-					return dynamic_cast<T*>(*actorit);
-			}
-
-			return nullptr;
-		}
-
-		template <class T> T* next_actor()
-		{
-			if(actorit == actors.end())
-				return nullptr;
-
-			for(actorit++; actorit != actors.end(); actorit++)
-			{
-				if(dynamic_cast<T*>(*actorit) != nullptr)
-					return dynamic_cast<T*>(*actorit);
-			}
-
-			return nullptr;
-		}
 };
 
 #endif

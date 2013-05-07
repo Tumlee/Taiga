@@ -10,7 +10,8 @@
 class TaigaActor
 {
 	public:
-	//The TaigaState that the actor was spawned in.
+	//The list the actor was spawned in.
+		TaigaActorList* container;
 		TaigaState* state;
 
 	//Every spawnable actor must have a tick() function defined.
@@ -21,10 +22,10 @@ class TaigaActor
 	//The following functions only exist so we don't have to call
 	//the container's member functions directly (saving keystrokes).
 		void draw(TaigaDrawer* drawer, int layer = -1);	//See TaigaState::draw()
-		void spawn(TaigaActor* actor);					//See TaigaState::spawn()
+		void spawn(TaigaActor* actor);					//See TaigaActorList::spawn()
 
 	//========================================================================
-	//See the note on TaigaState::first_actor() and TaigaState::next_actor().
+	//See the note on TaigaActorList::first() and TaigaActorList::next().
 	//Because of these member functions, the example loop when inside a member
 	//function of a TaigaActor derivative could be shortened to the following:
 	//
@@ -32,12 +33,12 @@ class TaigaActor
 	//========================================================================
 		template <class T> T* first_actor()
 		{
-			return state->first_actor<T>();
+			return container->first<T>();
 		}
 
 		template <class T> T* next_actor()
 		{
-			return state->next_actor<T>();
+			return container->next<T>();
 		}
 };
 

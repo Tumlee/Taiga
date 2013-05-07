@@ -1,7 +1,7 @@
 #include "Taiga.hpp"
 #include "TaigaState.hpp"
 #include "TaigaInput.hpp"
-#include "TaigaActor.hpp"
+#include "TaigaActorList.hpp"
 
 #include "physfs.h"
 
@@ -146,16 +146,7 @@ void TaigaState::tick()
 	mouse.update();
 
 	game_pretick(this);
-
-	for(size_t i = 0; i < actors.size(); i++)
-	{
-		if(actors[i]->tick() == false)
-		{
-			actors.erase(actors.begin() + i);
-			i--;
-		}
-	}
-
+	actors.tick();
 	game_posttick(this);
 
 	return;
@@ -164,17 +155,6 @@ void TaigaState::tick()
 void TaigaState::register_event_source(ALLEGRO_EVENT_SOURCE* source)
 {
 	al_register_event_source(event_queue, source);
-}
-
-void TaigaState::spawn(TaigaActor* actor)
-{
-	if(actor == nullptr)
-		fatal_error("Tried to spawn a null actor.");
-
-	actors.push_back(actor);
-	actor->state = this;
-
-	return;
 }
 
 void TaigaState::quit()
