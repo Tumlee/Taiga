@@ -172,17 +172,3 @@ ALLEGRO_DISPLAY* TaigaState::get_display()
 {
 	return display;
 }
-
-void TaigaState::set_cursor(ALLEGRO_BITMAP* image, int x, int y)
-{
-	static ALLEGRO_MOUSE_CURSOR* cur_cursor = nullptr;
-
-	if(cur_cursor)
-		al_destroy_mouse_cursor(cur_cursor);
-
-	cur_cursor = al_create_mouse_cursor(image, x, y);
-
-	al_set_mouse_cursor(get_display(), cur_cursor);
-}
-
-

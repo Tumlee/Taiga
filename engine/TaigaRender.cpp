@@ -208,3 +208,15 @@ int display_height()
 {
 	return al_get_display_height(al_get_current_display());
 }
+
+void set_cursor(ALLEGRO_BITMAP* image, int x, int y)
+{
+	static ALLEGRO_MOUSE_CURSOR* cur_cursor = nullptr;
+
+	if(cur_cursor)
+		al_destroy_mouse_cursor(cur_cursor);
+
+	cur_cursor = al_create_mouse_cursor(image, x, y);
+
+	al_set_mouse_cursor(al_get_current_display(), cur_cursor);
+}
