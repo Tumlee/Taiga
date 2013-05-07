@@ -20,6 +20,7 @@ void TaigaActorList::tick()
 	{
 		if(list[i]->tick() == false)
 		{
+			delete list[i];
 			list.erase(list.begin() + i);
 			i--;
 		}
