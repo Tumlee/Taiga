@@ -198,3 +198,13 @@ int image_height(ALLEGRO_BITMAP* image)
 {
 	return image ? al_get_bitmap_height(image) : 0;
 }
+
+int display_width()
+{
+	return al_get_display_width(al_get_current_display());
+}
+
+int display_height()
+{
+	return al_get_display_height(al_get_current_display());
+}
