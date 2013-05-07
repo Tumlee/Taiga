@@ -29,12 +29,12 @@ class TaigaActor
 	//
 	//for(Ball* ball = first_actor<Ball>(); ball; ball = next_actor<Ball>())
 	//========================================================================
-		template <class T> T* first_actor()
+		template <class T = TaigaActor> T* first()
 		{
 			return container->first<T>();
 		}
 
-		template <class T> T* next_actor()
+		template <class T = TaigaActor> T* next()
 		{
 			return container->next<T>();
 		}
