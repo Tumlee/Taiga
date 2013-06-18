@@ -53,6 +53,7 @@ TaigaLayerList::TaigaLayerList()
 	//In most cases, this should be plenty.
 	set_layercount(4);
 	target = nullptr;
+	screenshot = nullptr;
 }
 
 void TaigaLayerList::add(TaigaDrawer* entry, int layernum)
@@ -78,8 +79,16 @@ void TaigaLayerList::draw_entries()
 	//Make sure we're drawing on our target.
 	al_set_target_bitmap(target);
 
-	for(auto layer : layers)
-		layer.draw_entries();
+	for(size_t i = 0; i < layers.size(); i++)
+	{
+		layers[i].draw_entries();
+
+		if(screenshot_request == i)
+		{
+			screenshot = al_clone_bitmap(target);
+			screenshot_request = -2;
+		}
+	}
 
 	//Reset the target bitmap to the old one.
 	al_set_target_bitmap(old_target);
@@ -98,6 +107,11 @@ void TaigaLayerList::set_layercount(size_t count)
 
 	for(size_t i = 0; i < count; i++)
 		layers.emplace_back(TaigaLayer());
+
+	//When the number of layers changes, the requested layer
+	//to take a screenshot from is no longer logically relevant.
+	//Set it to -2, which signifies that there is no requested screenshot.
+	screenshot_request = -2;
 }
 
 void TaigaLayerList::set_layercam(TaigaLayerCam cam, int layernum)
@@ -106,6 +120,25 @@ void TaigaLayerList::set_layercam(TaigaLayerCam cam, int layernum)
 		return;
 
 	layers[layernum].cam = cam;
+}
+
+void TaigaLayerList::request_screenshot(int layer)
+{
+	//screenshot request for -1 means the last avaliable layer.
+	if(layer == -1)
+		layer = layers.size() - 1;
+
+	//Invalid screenshot request?
+	if(layer >= layers.size())
+		return;
+
+	screenshot_request = layer;
+}
+
+void TaigaLayerList::clear_screenshot()
+{
+	al_destroy_bitmap(screenshot);
+	screenshot = nullptr;
 }
 
 //===========================================

@@ -57,9 +57,11 @@ class TaigaLayerList
 {
 	private:
 		std::vector<TaigaLayer> layers;
+		int screenshot_request;
 
 	public:
 		ALLEGRO_BITMAP* target;
+		ALLEGRO_BITMAP* screenshot;
 
 		TaigaLayerList();
 
@@ -69,6 +71,8 @@ class TaigaLayerList
 		void set_layercount(size_t count);
 
 		void set_layercam(TaigaLayerCam cam, int layernum);
+		void request_screenshot(int layer = -1);
+		void clear_screenshot();
 };
 
 //A basic TaigaDrawer that draws a sprite, so users don't have to write
