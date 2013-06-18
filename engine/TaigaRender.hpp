@@ -122,6 +122,18 @@ class TaigaText : public TaigaDrawer
 		virtual void draw();
 };
 
+//A TaigaDrawer to change the Allegro blending style.
+class TaigaBlend : public TaigaDrawer
+{
+	public:
+		int op;
+		int src;
+		int dest;
+
+		TaigaBlend(int oper, int source, int dest);
+		virtual void draw();
+};
+
 int image_height(ALLEGRO_BITMAP* image);
 int image_width(ALLEGRO_BITMAP* image);
 int display_width();

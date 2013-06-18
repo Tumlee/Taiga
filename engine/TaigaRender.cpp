@@ -200,6 +200,21 @@ void TaigaText::draw()
 }
 
 //==========================================
+//Member functions for the TaigaBlend class.
+//==========================================
+TaigaBlend::TaigaBlend(int oper, int source, int destination)
+{
+	op = oper;
+	src = source;
+	dest = destination;
+}
+
+void TaigaBlend::draw()
+{
+	al_set_blender(op, src, dest);
+}
+
+//==========================================
 //Miscellaneous rendering-related functions.
 //==========================================
 int image_width(ALLEGRO_BITMAP* image)
