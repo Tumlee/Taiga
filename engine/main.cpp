@@ -1,9 +1,15 @@
+#include "Taiga.hpp"
 #include "TaigaState.hpp"
 
 TaigaInitSettings game_bootup();
 
 int global_argc;
 char** global_argv;
+
+TaigaKeyboard key;
+TaigaMouse mouse;
+TaigaActorList actors;
+TaigaLayerList canvas;
 
 int main(int argc, char** argv)
 {

@@ -1,7 +1,5 @@
 #include "TaigaRender.hpp"
 
-TaigaLayerList canvas;
-
 //=============================================
 //Member functions for the TaigaLayerCam class.
 //=============================================

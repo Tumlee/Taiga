@@ -1,8 +1,5 @@
 #include "TaigaInput.hpp"
 
-TaigaKeyboard key;
-TaigaMouse mouse;
-
 //=======================================================
 //Functions for the semantics behind checking the logical
 //keystate of a key or button.

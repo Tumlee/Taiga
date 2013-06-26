@@ -1,8 +1,6 @@
 #include "TaigaActor.hpp"
 #include "TaigaActorList.hpp"
 
-TaigaActorList actors;
-
 void TaigaActorList::spawn(TaigaActor* actor)
 {
 	if(actor == nullptr)
