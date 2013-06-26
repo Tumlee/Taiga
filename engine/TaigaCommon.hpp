@@ -1,5 +1,5 @@
-#ifndef TAIGA_MAINHEADER
-#define TAIGA_MAINHEADER
+#ifndef TAIGA_COMMON
+#define TAIGA_COMMON
 
 //Include all the Allegro 5 headers that we'll use.
 //It doesn't slow compile THAT much --- honest!

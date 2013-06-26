@@ -1,4 +1,4 @@
-#include "Taiga.hpp"
+#include "TaigaCommon.hpp"
 
 #include <iostream>
 #include <cstdlib>

@@ -1,7 +1,7 @@
 #ifndef TAIGA_RENDER
 #define TAIGA_RENDER
 
-#include "Taiga.hpp"
+#include "TaigaCommon.hpp"
 
 #include <vector>
 #include <cstdlib>

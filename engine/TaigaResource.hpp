@@ -1,7 +1,7 @@
 #ifndef TAIGA_RESOURCE
 #define TAIGA_RESOURCE
 
-#include "Taiga.hpp"
+#include "TaigaCommon.hpp"
 
 #include <string>
 

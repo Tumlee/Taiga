@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Taiga.hpp"
+#include "TaigaCommon.hpp"
 #include "TaigaActorList.hpp"
 
 class TaigaInitSettings

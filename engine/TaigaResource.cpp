@@ -1,4 +1,4 @@
-#include "Taiga.hpp"
+#include "TaigaCommon.hpp"
 #include "TaigaResource.hpp"
 
 using std::string;

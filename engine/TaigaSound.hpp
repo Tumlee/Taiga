@@ -1,7 +1,7 @@
 #ifndef TAIGA_SOUND
 #define TAIGA_SOUND
 
-#include "Taiga.hpp"
+#include "TaigaCommon.hpp"
 
 //Plays the given sample as a music, looping it by default. Passing nullptr as the 'music' argument
 //will stop the current music.
