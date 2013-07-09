@@ -16,7 +16,7 @@ void init_subsystem(bool result, string description)
 		fatal_error("Failed to " + description);
 }
 
-void TaigaState::init(TaigaInitSettings settings)
+void TaigaInit(TaigaInitSettings settings)
 {
 	//If any of these are non-null, we've already started.
 	if(taiga_ticktimer || taiga_frametimer || taiga_events || taiga_display)
