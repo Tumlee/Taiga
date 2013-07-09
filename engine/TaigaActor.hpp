@@ -27,7 +27,7 @@ class TaigaActor
 	//Because of these member functions, the example loop when inside a member
 	//function of a TaigaActor derivative could be shortened to the following:
 	//
-	//for(Ball* ball = first_actor<Ball>(); ball; ball = next_actor<Ball>())
+	//for(Ball* ball = first<Ball>(); ball; ball = next<Ball>())
 	//========================================================================
 		template <class T = TaigaActor> T* first()
 		{

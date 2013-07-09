@@ -25,7 +25,7 @@ class TaigaActorList
 	//type that is contained in the actor list. It will return nullptr if there are no
 	//actors of the given type.
 	//
-	//Each call to TaigaState::next_actor() after that will get the next actor of the
+	//Each call to TaigaActorList::next() after that will get the next actor of the
 	//given type, and when there are no more actors of that type, it will return nullptr.
 	//
 	//For example, if you wanted to operate on all spawned actors of the type "Ball", your

@@ -6,8 +6,8 @@
 //================================================================================
 //The very first function called by main().
 //The settings returned by this function will be used to initalize the TaigaState.
-//Because no TaigaState is up yet and Allegro isn't initialized, you should not
-//load any resources or spawn any actors yet.
+//Because Allegro isn't initialized, you should not load any resources or spawn
+//any actors yet.
 //
 //Use this function to determine which screen dimensions you want to use, as well
 //as your framerate, possibly loading these settings from an INI.
@@ -20,9 +20,9 @@ TaigaInitSettings game_bootup(void)
 }
 
 //======================================================================
-//Called right after the TaigaState has been initalized and just before
-//the game begins actually running. Use this to load whatever resources
-//you need, start playing music, spawn actors, initialize any additional
+//Called right after Allegro has been initalized and just before the
+//game begins actually running. Use this to load whatever resources you
+//need, start playing music, spawn actors, initialize any additional
 //Allegro subsystems you might need, etc.
 //
 //You can even put up a loading screen before beginning to load your
@@ -53,10 +53,10 @@ void game_posttick()
 {
 }
 
-//==========================================================
-//Most Allegro events caught by the TaigaState are passed to
+//=========================================================
+//Most Allegro events caught by the main loop are passed to
 //this function so you can handle certain events yourself.
-//==========================================================
+//=========================================================
 void game_handle_event(ALLEGRO_EVENT event)
 {
 	//By default, quit the game if the X button was clicked.
