@@ -1,6 +1,8 @@
 #ifndef TAIGA_ACTORLIST
 #define TAIGA_ACTORLIST
 
+#include <vector>
+
 class TaigaActor;
 
 class TaigaActorList

@@ -1,4 +1,4 @@
-#include "TaigaState.hpp"
+#include "TaigaInit.hpp"
 #include "TaigaResource.hpp"
 #include "TaigaSound.hpp"
 #include "TaigaInput.hpp"

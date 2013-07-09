@@ -1,5 +1,5 @@
 #include "TaigaCommon.hpp"
-#include "TaigaState.hpp"
+#include "TaigaInit.hpp"
 #include "TaigaInput.hpp"
 #include "TaigaActorList.hpp"
 #include "TaigaRender.hpp"

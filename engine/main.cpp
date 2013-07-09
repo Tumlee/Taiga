@@ -1,5 +1,5 @@
 #include "Taiga.hpp"
-#include "TaigaState.hpp"
+#include "TaigaInit.hpp"
 
 TaigaInitSettings game_bootup();
 void game_posttick();

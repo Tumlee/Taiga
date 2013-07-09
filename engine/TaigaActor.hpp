@@ -1,7 +1,7 @@
 #ifndef TAIGA_ACTOR
 #define TAIGA_ACTOR
 
-#include "TaigaState.hpp"
+#include "TaigaActorList.hpp"
 #include "TaigaRender.hpp"
 
 //The base class for any actor in Taiga.
