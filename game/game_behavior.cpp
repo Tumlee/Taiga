@@ -1,7 +1,6 @@
+#include "Taiga.hpp"
 #include "TaigaInit.hpp"
 #include "TaigaResource.hpp"
-#include "TaigaSound.hpp"
-#include "TaigaInput.hpp"
 
 //================================================================================
 //The very first function called by main().

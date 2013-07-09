@@ -6,12 +6,6 @@
 #include "TaigaCommon.hpp"
 #include "TaigaActorList.hpp"
 
-extern ALLEGRO_DISPLAY* taiga_display;
-extern ALLEGRO_EVENT_QUEUE* taiga_events;
-extern ALLEGRO_TIMER* taiga_ticktimer;
-extern ALLEGRO_TIMER* taiga_frametimer;
-extern bool taiga_quitting;
-
 class TaigaInitSettings
 {
 	public:

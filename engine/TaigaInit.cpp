@@ -1,3 +1,4 @@
+#include "Taiga.hpp"
 #include "TaigaCommon.hpp"
 #include "TaigaInit.hpp"
 #include "TaigaInput.hpp"
