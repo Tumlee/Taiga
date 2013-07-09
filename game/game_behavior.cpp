@@ -28,7 +28,7 @@ TaigaInitSettings game_bootup(void)
 //You can even put up a loading screen before beginning to load your
 //resources.
 //======================================================================
-void game_start(TaigaState* state)
+void game_start()
 {
 }
 
@@ -45,11 +45,11 @@ void game_start(TaigaState* state)
 //order that the actors were spawned. Finally, game_posttick()
 //is called.
 //=================================================================
-void game_pretick(TaigaState* state)
+void game_pretick()
 {
 }
 
-void game_posttick(TaigaState* state)
+void game_posttick()
 {
 }
 
@@ -57,7 +57,7 @@ void game_posttick(TaigaState* state)
 //Most Allegro events caught by the TaigaState are passed to
 //this function so you can handle certain events yourself.
 //==========================================================
-void game_handle_event(TaigaState* state, ALLEGRO_EVENT event)
+void game_handle_event(ALLEGRO_EVENT event)
 {
 	//By default, quit the game if the X button was clicked.
 	if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)

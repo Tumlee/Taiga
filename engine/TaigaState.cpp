@@ -8,10 +8,10 @@
 
 using std::string;
 
-void game_start(TaigaState* state);
-void game_posttick(TaigaState* state);
-void game_pretick(TaigaState* state);
-void game_handle_event(TaigaState* state, ALLEGRO_EVENT event);
+void game_start();
+void game_posttick();
+void game_pretick();
+void game_handle_event(ALLEGRO_EVENT event);
 
 void init_subsystem(bool result, string description)
 {
@@ -66,7 +66,7 @@ void TaigaState::init(TaigaInitSettings settings)
 	al_clear_to_color(al_map_rgb(0,0,0));
     al_flip_display();
 
-    game_start(this);
+    game_start();
 	al_start_timer(taiga_ticktimer);
 
 	if(taiga_frametimer)
@@ -99,7 +99,7 @@ void TaigaState::run()
 		}
 		else
 		{
-			game_handle_event(this, ev);
+			game_handle_event(ev);
 		}
 
         if(taiga_quitting)
@@ -122,9 +122,9 @@ void TaigaState::tick()
 	key.update();
 	mouse.update();
 
-	game_pretick(this);
+	game_pretick();
 	actors.tick();
-	game_posttick(this);
+	game_posttick();
 
 	return;
 }
