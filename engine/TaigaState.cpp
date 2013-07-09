@@ -16,25 +16,6 @@ void game_handle_event(TaigaState* state, ALLEGRO_EVENT event);
 TaigaState::TaigaState()
 {
 	quitting = false;
-	display = nullptr;
-	event_queue = nullptr;
-	ticktimer = nullptr;
-	frametimer = nullptr;
-}
-
-TaigaState::~TaigaState()
-{
-	if(ticktimer)
-		al_destroy_timer(ticktimer);
-
-	if(frametimer)
-		al_destroy_timer(frametimer);
-
-	if(display)
-		al_destroy_display(display);
-
-	if(event_queue)
-		al_destroy_event_queue(event_queue);
 }
 
 void init_subsystem(bool result, string description)
@@ -46,7 +27,7 @@ void init_subsystem(bool result, string description)
 void TaigaState::init(TaigaInitSettings settings)
 {
 	//If any of these are non-null, we've already started.
-	if(ticktimer || frametimer || event_queue || display)
+	if(taiga_ticktimer || taiga_frametimer || taiga_events || taiga_display)
 		fatal_error("Attempted to reinitialize an already-running TaigaState.");
 
 	//Initialize Allegro and all needed addons.
@@ -59,24 +40,24 @@ void TaigaState::init(TaigaInitSettings settings)
 	init_subsystem(al_init_primitives_addon(), "initialize Allegro primitives addon.");
 
 	//Set up the event queue and start up graphics, audio, and input.
-    init_subsystem((event_queue = al_create_event_queue()), "create an event queue.");
-	init_subsystem((display = al_create_display(settings.width, settings.height)), "create a display.");
+    init_subsystem((taiga_events = al_create_event_queue()), "create an event queue.");
+	init_subsystem((taiga_display = al_create_display(settings.width, settings.height)), "create a display.");
 	init_subsystem(al_install_keyboard(), "install keyboard for Allegro.");
 	init_subsystem(al_install_mouse(), "install mouse for Allegro.");
 	init_subsystem(al_reserve_samples(16), "reserve samples for Allegro audio.");
 
 	mouse.init();
 	key.init();
-	canvas.target = al_get_backbuffer(display);
+	canvas.target = al_get_backbuffer(taiga_display);
 
 	//Set up the tick timer.
-	init_subsystem((ticktimer = al_create_timer(1 / settings.tickrate)), "create the ticktimer.");
-	al_register_event_source(event_queue, al_get_timer_event_source(ticktimer));
+	init_subsystem((taiga_ticktimer = al_create_timer(1 / settings.tickrate)), "create the ticktimer.");
+	al_register_event_source(taiga_events, al_get_timer_event_source(taiga_ticktimer));
 
 	if(settings.framerate != 0)
 	{
-		init_subsystem((frametimer = al_create_timer(1 / settings.framerate)), "create the frametimer.");
-		al_register_event_source(event_queue, al_get_timer_event_source(frametimer));
+		init_subsystem((taiga_frametimer = al_create_timer(1 / settings.framerate)), "create the frametimer.");
+		al_register_event_source(taiga_events, al_get_timer_event_source(taiga_frametimer));
 	}
 
 	//Set up physfs and use the your .trp as a "resources" folder.
@@ -86,15 +67,15 @@ void TaigaState::init(TaigaInitSettings settings)
 	al_set_physfs_file_interface();
 
 	//Clear the display and register it as an event source.
-	al_register_event_source(event_queue, al_get_display_event_source(display));
+	al_register_event_source(taiga_events, al_get_display_event_source(taiga_display));
 	al_clear_to_color(al_map_rgb(0,0,0));
     al_flip_display();
 
     game_start(this);
-	al_start_timer(ticktimer);
+	al_start_timer(taiga_ticktimer);
 
-	if(frametimer)
-		al_start_timer(frametimer);
+	if(taiga_frametimer)
+		al_start_timer(taiga_frametimer);
 
     run();
 
@@ -109,15 +90,15 @@ void TaigaState::run()
 	while(true)
     {
         ALLEGRO_EVENT ev;
-        al_wait_for_event(event_queue, &ev);
+        al_wait_for_event(taiga_events, &ev);
 
-        if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == ticktimer)
+        if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == taiga_ticktimer)
         {
 			canvas.clear();
         	tick();
             redraw = true;
         }
-        else if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == frametimer)
+        else if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == taiga_frametimer)
 		{
 			frameokay = true;
 		}
@@ -129,13 +110,13 @@ void TaigaState::run()
         if(quitting)
 			break;
 
-        if(redraw && al_is_event_queue_empty(event_queue) && frameokay)
+        if(redraw && al_is_event_queue_empty(taiga_events) && frameokay)
         {
             redraw = false;
             canvas.draw_entries();
             al_flip_display();
 
-            if(frametimer)
+            if(taiga_frametimer)
 				frameokay = false;
         }
     }
@@ -155,7 +136,7 @@ void TaigaState::tick()
 
 void TaigaState::register_event_source(ALLEGRO_EVENT_SOURCE* source)
 {
-	al_register_event_source(event_queue, source);
+	al_register_event_source(taiga_events, source);
 }
 
 void TaigaState::quit()
@@ -165,10 +146,10 @@ void TaigaState::quit()
 
 void TaigaState::retarget_display()
 {
-	al_set_target_bitmap(al_get_backbuffer(display));
+	al_set_target_bitmap(al_get_backbuffer(taiga_display));
 }
 
 ALLEGRO_DISPLAY* TaigaState::get_display()
 {
-	return display;
+	return taiga_display;
 }

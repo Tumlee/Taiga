@@ -11,6 +11,11 @@ TaigaMouse mouse;
 TaigaActorList actors;
 TaigaLayerList canvas;
 
+ALLEGRO_DISPLAY* taiga_display = nullptr;
+ALLEGRO_EVENT_QUEUE* taiga_events = nullptr;
+ALLEGRO_TIMER* taiga_ticktimer = nullptr;
+ALLEGRO_TIMER* taiga_frametimer = nullptr;
+
 int main(int argc, char** argv)
 {
 	global_argc = argc;

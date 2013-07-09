@@ -6,6 +6,11 @@
 #include "TaigaCommon.hpp"
 #include "TaigaActorList.hpp"
 
+extern ALLEGRO_DISPLAY* taiga_display;
+extern ALLEGRO_EVENT_QUEUE* taiga_events;
+extern ALLEGRO_TIMER* taiga_ticktimer;
+extern ALLEGRO_TIMER* taiga_frametimer;
+
 class TaigaInitSettings
 {
 	public:
@@ -23,11 +28,6 @@ class TaigaInitSettings
 class TaigaState
 {
 	private:
-		ALLEGRO_DISPLAY* display;
-		ALLEGRO_EVENT_QUEUE* event_queue;
-		ALLEGRO_TIMER* ticktimer;
-		ALLEGRO_TIMER* frametimer;
-
 		bool quitting;
 
 		void tick();
@@ -35,7 +35,6 @@ class TaigaState
 
 	public:
 		TaigaState();
-		~TaigaState();
 
 	//This function is automatically called by main()
 	//and should not be called by the user.
