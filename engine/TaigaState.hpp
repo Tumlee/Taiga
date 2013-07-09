@@ -40,18 +40,6 @@ class TaigaState
 	//Registers a new event source so their events can be passed
 	//to the user in game_handle_event()
 		void register_event_source(ALLEGRO_EVENT_SOURCE* source);
-
-	//Sets the target bitmap back to being the display backbuffer.
-	//This needs to be called before the next render after targeting
-	//a different bitmap.
-		void retarget_display();
-
-	//Returns a pointer to the display. This is needed because so many
-	//Allegro functions demand a display as an argument.
-		ALLEGRO_DISPLAY* get_display();
-
-	//Forces the game to end immediately after game_posttick() returns.
-		void quit();
 };
 
 #endif

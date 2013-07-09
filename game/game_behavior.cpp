@@ -61,5 +61,5 @@ void game_handle_event(TaigaState* state, ALLEGRO_EVENT event)
 {
 	//By default, quit the game if the X button was clicked.
 	if(event.type == ALLEGRO_EVENT_DISPLAY_CLOSE)
-		state->quit();
+		taiga_quitting = true;
 }

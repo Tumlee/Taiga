@@ -128,23 +128,3 @@ void TaigaState::tick()
 
 	return;
 }
-
-void TaigaState::register_event_source(ALLEGRO_EVENT_SOURCE* source)
-{
-	al_register_event_source(taiga_events, source);
-}
-
-void TaigaState::quit()
-{
-	taiga_quitting = true;
-}
-
-void TaigaState::retarget_display()
-{
-	al_set_target_bitmap(al_get_backbuffer(taiga_display));
-}
-
-ALLEGRO_DISPLAY* TaigaState::get_display()
-{
-	return taiga_display;
-}
