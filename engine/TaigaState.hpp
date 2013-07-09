@@ -29,12 +29,4 @@ class TaigaInitSettings
 //and should not be called by the user.
 void TaigaInit(TaigaInitSettings settings);
 
-class TaigaState
-{
-	public:
-	//Registers a new event source so their events can be passed
-	//to the user in game_handle_event()
-		void register_event_source(ALLEGRO_EVENT_SOURCE* source);
-};
-
 #endif

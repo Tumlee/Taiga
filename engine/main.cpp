@@ -25,7 +25,6 @@ int main(int argc, char** argv)
 	global_argc = argc;
 	global_argv = argv;
 
-	TaigaState state;
 	TaigaInit(game_bootup());
 
 	bool redraw = true;
