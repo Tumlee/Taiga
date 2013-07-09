@@ -13,11 +13,6 @@ void game_posttick(TaigaState* state);
 void game_pretick(TaigaState* state);
 void game_handle_event(TaigaState* state, ALLEGRO_EVENT event);
 
-TaigaState::TaigaState()
-{
-	quitting = false;
-}
-
 void init_subsystem(bool result, string description)
 {
 	if(result == false)
@@ -107,7 +102,7 @@ void TaigaState::run()
 			game_handle_event(this, ev);
 		}
 
-        if(quitting)
+        if(taiga_quitting)
 			break;
 
         if(redraw && al_is_event_queue_empty(taiga_events) && frameokay)
@@ -141,7 +136,7 @@ void TaigaState::register_event_source(ALLEGRO_EVENT_SOURCE* source)
 
 void TaigaState::quit()
 {
-	quitting = true;
+	taiga_quitting = true;
 }
 
 void TaigaState::retarget_display()

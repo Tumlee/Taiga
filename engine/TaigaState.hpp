@@ -10,6 +10,7 @@ extern ALLEGRO_DISPLAY* taiga_display;
 extern ALLEGRO_EVENT_QUEUE* taiga_events;
 extern ALLEGRO_TIMER* taiga_ticktimer;
 extern ALLEGRO_TIMER* taiga_frametimer;
+extern bool taiga_quitting;
 
 class TaigaInitSettings
 {
@@ -28,14 +29,10 @@ class TaigaInitSettings
 class TaigaState
 {
 	private:
-		bool quitting;
-
 		void tick();
 		void run();
 
 	public:
-		TaigaState();
-
 	//This function is automatically called by main()
 	//and should not be called by the user.
 		void init(TaigaInitSettings settings);

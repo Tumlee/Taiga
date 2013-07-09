@@ -15,6 +15,7 @@ ALLEGRO_DISPLAY* taiga_display = nullptr;
 ALLEGRO_EVENT_QUEUE* taiga_events = nullptr;
 ALLEGRO_TIMER* taiga_ticktimer = nullptr;
 ALLEGRO_TIMER* taiga_frametimer = nullptr;
+bool taiga_quitting = false;
 
 int main(int argc, char** argv)
 {
