@@ -28,10 +28,6 @@ class TaigaInitSettings
 
 class TaigaState
 {
-	private:
-		void tick();
-		void run();
-
 	public:
 	//This function is automatically called by main()
 	//and should not be called by the user.

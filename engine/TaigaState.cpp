@@ -9,9 +9,6 @@
 using std::string;
 
 void game_start();
-void game_posttick();
-void game_pretick();
-void game_handle_event(ALLEGRO_EVENT event);
 
 void init_subsystem(bool result, string description)
 {
@@ -72,59 +69,5 @@ void TaigaState::init(TaigaInitSettings settings)
 	if(taiga_frametimer)
 		al_start_timer(taiga_frametimer);
 
-    run();
-
     return;
-}
-
-void TaigaState::run()
-{
-	bool redraw = true;
-	bool frameokay = true;
-
-	while(true)
-    {
-        ALLEGRO_EVENT ev;
-        al_wait_for_event(taiga_events, &ev);
-
-        if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == taiga_ticktimer)
-        {
-			canvas.clear();
-        	tick();
-            redraw = true;
-        }
-        else if(ev.type == ALLEGRO_EVENT_TIMER && ev.timer.source == taiga_frametimer)
-		{
-			frameokay = true;
-		}
-		else
-		{
-			game_handle_event(ev);
-		}
-
-        if(taiga_quitting)
-			break;
-
-        if(redraw && al_is_event_queue_empty(taiga_events) && frameokay)
-        {
-            redraw = false;
-            canvas.draw_entries();
-            al_flip_display();
-
-            if(taiga_frametimer)
-				frameokay = false;
-        }
-    }
-}
-
-void TaigaState::tick()
-{
-	key.update();
-	mouse.update();
-
-	game_pretick();
-	actors.tick();
-	game_posttick();
-
-	return;
 }
