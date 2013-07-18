@@ -4,6 +4,7 @@
 TaigaActorList::TaigaActorList()
 {
 	paused = false;
+	ticking = false;
 }
 
 void TaigaActorList::spawn(TaigaActor* actor)
@@ -22,6 +23,11 @@ void TaigaActorList::tick()
 	if(paused)
 		return;
 
+	if(ticking)
+		fatal_error("Attempted to tick an already-ticking TaigaActorList.");
+
+	ticking = true;
+
 	for(size_t i = 0; i < list.size(); i++)
 	{
 		if(list[i]->tick() == false)
@@ -31,4 +37,6 @@ void TaigaActorList::tick()
 			i--;
 		}
 	}
+
+	ticking = false;
 }

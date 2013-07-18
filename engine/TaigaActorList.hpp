@@ -10,6 +10,7 @@ class TaigaActorList
 {
 	std::vector<TaigaActor*> list;
 	std::vector<TaigaActor*>::iterator it;
+	bool ticking;
 
 	public:
 	//Determines whether or not the TaigaActorList will actually do anything
