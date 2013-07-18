@@ -1,6 +1,7 @@
 #ifndef TAIGA_ACTORLIST
 #define TAIGA_ACTORLIST
 
+#include "TaigaCommon.hpp"
 #include <vector>
 #include <cstdlib>
 
@@ -67,6 +68,9 @@ class TaigaActorList
 
 		template <class T = TaigaActor> void clear()
 		{
+			if(ticking)
+				fatal_error("Attempted to clear actors from a ticking TaigaActorList.");
+
 			for(size_t i = 0; i < list.size(); i++)
 			{
 				if(dynamic_cast<T*>(list[i]))
