@@ -2,6 +2,7 @@
 #define TAIGA_ACTORLIST
 
 #include <vector>
+#include <cstdlib>
 
 class TaigaActor;
 
@@ -61,6 +62,19 @@ class TaigaActorList
 			}
 
 			return nullptr;
+		}
+
+		template <class T = TaigaActor> void clear()
+		{
+			for(size_t i = 0; i < list.size(); i++)
+			{
+				if(dynamic_cast<T*>(list[i]))
+				{
+					delete list[i];
+					list.erase(list.begin() + i);
+					i--;
+				}
+			}
 		}
 };
 
