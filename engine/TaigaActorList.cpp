@@ -1,6 +1,11 @@
 #include "TaigaActor.hpp"
 #include "TaigaActorList.hpp"
 
+TaigaActorList::TaigaActorList()
+{
+	paused = false;
+}
+
 void TaigaActorList::spawn(TaigaActor* actor)
 {
 	if(actor == nullptr)
@@ -14,6 +19,9 @@ void TaigaActorList::spawn(TaigaActor* actor)
 
 void TaigaActorList::tick()
 {
+	if(paused)
+		return;
+
 	for(size_t i = 0; i < list.size(); i++)
 	{
 		if(list[i]->tick() == false)

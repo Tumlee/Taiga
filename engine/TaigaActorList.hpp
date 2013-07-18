@@ -11,6 +11,11 @@ class TaigaActorList
 	std::vector<TaigaActor*>::iterator it;
 
 	public:
+	//Determines whether or not the TaigaActorList will actually do anything
+	//when tick() is called.
+		bool paused;
+
+		TaigaActorList();
 
 	//Spawns a new actor. The actor needs to be allocated by the user via 'new'.
 	//Deletion will be handled by the list from there.
