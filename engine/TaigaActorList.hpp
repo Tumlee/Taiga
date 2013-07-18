@@ -64,6 +64,4 @@ class TaigaActorList
 		}
 };
 
-extern TaigaActorList actors;
-
 #endif
