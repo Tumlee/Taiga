@@ -97,6 +97,7 @@ class TaigaSpriteEx : public TaigaDrawer
 		float angle;
 		float centerx, centery;
 		float scalex, scaley;
+		float alpha;
 
 		TaigaSpriteEx();
 		TaigaSpriteEx(ALLEGRO_BITMAP* spr, int xx, int yy, int flags = 0);

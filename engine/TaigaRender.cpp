@@ -174,6 +174,7 @@ TaigaSpriteEx::TaigaSpriteEx()
 	flipflags = 0;
 	centerx = centery = 0;
 	scalex = scaley = 1;
+	alpha = 1.0;
 }
 
 TaigaSpriteEx::TaigaSpriteEx(ALLEGRO_BITMAP* spr, int xx, int yy, int flags)
@@ -185,14 +186,16 @@ TaigaSpriteEx::TaigaSpriteEx(ALLEGRO_BITMAP* spr, int xx, int yy, int flags)
 	angle = 0;
 	centerx = centery = 0;
 	scalex = scaley = 1;
+	alpha = 1.0;
 }
 
 void TaigaSpriteEx::draw()
 {
 	if(sprite)
 	{
-		al_draw_scaled_rotated_bitmap(sprite, centerx, centery, x, y,
-										scalex, scaley, angle, flipflags);
+		al_draw_tinted_scaled_rotated_bitmap(sprite, al_map_rgba_f(alpha, alpha, alpha, alpha),
+										centerx, centery, x, y, scalex, scaley,
+										angle, flipflags);
 	}
 }
 
