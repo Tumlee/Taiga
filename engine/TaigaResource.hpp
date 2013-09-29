@@ -5,6 +5,12 @@
 
 #include <string>
 
+//Instructs the game engine that all resources beyond this point
+//in the program are required (or not required if false) for the
+//game to run. If a resource cannot be found while this is on,
+//the game will generate a fatal error and exit immediately.
+void set_resources_required(bool setting = true);
+
 //==========================================================================
 //Functions for loading resources. These will ALL load resources either from
 //a folder called "resources" in the working directory, or from a .trp file
