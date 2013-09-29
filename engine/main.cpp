@@ -55,6 +55,12 @@ int main(int argc, char** argv)
 			game_handle_event(ev);
 		}
 
+		if(ev.type == ALLEGRO_EVENT_DISPLAY_SWITCH_OUT)
+		{
+			mouse.clear();
+			key.clear();
+		}
+
         if(taiga_quitting)
 			break;
 

@@ -48,10 +48,11 @@ class TaigaKeyboard
 	public:
 		TaigaKeyboard();
 
-	//These two functions really shouldn't be called by the user, as
+	//These functions really shouldn't be called by the user, as
 	//it will likely cause issues with input not being detected correctly.
 		void init();
 		void update();
+		void clear();	//Automatically releases all keys.
 
 	//All of these functions take an ALLEGRO_KEY_* as their argument.
 	//Do not expect passing ASCII characters to work properly.
@@ -107,6 +108,7 @@ class TaigaMouse
 	//automatically called by the game loop.
 		void init();
 		void update();
+		void clear();	//Automatically releases all mousebuttons.
 };
 
 extern TaigaKeyboard key;

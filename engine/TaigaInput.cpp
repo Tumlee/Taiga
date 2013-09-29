@@ -69,6 +69,15 @@ void TaigaKeyboard::update()
 	}
 }
 
+void TaigaKeyboard::clear()
+{
+	for(int i = 0; i < ALLEGRO_KEY_MAX; i++)
+	{
+		if(isdown(keys[i]))
+			keys[i] = keystate::freshup;
+	}
+}
+
 bool TaigaKeyboard::fresh(int key)
 {
 	if(key <= 0 || key >= ALLEGRO_KEY_MAX)
@@ -216,6 +225,15 @@ void TaigaMouse::update()
 	}
 
 	return;
+}
+
+void TaigaMouse::clear()
+{
+	for(auto& button : buttons)
+	{
+		if(isdown(button))
+			button = keystate::freshup;
+	}
 }
 
 int TaigaMouse::getaxis(int axisnum)
