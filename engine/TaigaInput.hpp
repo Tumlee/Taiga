@@ -34,6 +34,14 @@ enum class mousebut
 	middle = 2
 };
 
+//An enum that represents the different control types
+//that a TaigaControl can have.
+enum class TaigaControlType
+{
+	mbutton,
+	kbutton
+};
+
 //=======================================================================
 //Class to keep track of the keyboard, an instance of this, called 'key',
 //is automatically created by the engine and can be accessed globally.
@@ -109,6 +117,21 @@ class TaigaMouse
 		void init();
 		void update();
 		void clear();	//Automatically releases all mousebuttons.
+};
+
+class TaigaControl
+{
+	TaigaControlType type;
+	int enumeration;
+
+	public:
+		TaigaControl(TaigaControlType t, int e);
+		TaigaControl(mousebut mb);
+
+		bool down();
+		bool fresh();
+		bool up();
+		bool freshup();
 };
 
 extern TaigaKeyboard key;

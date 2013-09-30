@@ -276,3 +276,78 @@ int TaigaMouse::scrolldelta()
 {
 	return axisdelta(mouseaxis::z);
 }
+
+//============================================
+//Member functions for the TaigaControl class.
+//============================================
+TaigaControl::TaigaControl(TaigaControlType t, int e)
+{
+	type = t;
+	enumeration = e;
+}
+
+TaigaControl::TaigaControl(mousebut mb)
+{
+	type = TaigaControlType::mbutton;
+	enumeration = (int)mb;
+}
+
+bool TaigaControl::down()
+{
+	switch(type)
+	{
+		case TaigaControlType::kbutton:
+			return key.down(enumeration);
+
+		case TaigaControlType::mbutton:
+			return mouse.down(enumeration);
+
+		default:
+			fatal_error("Polled a malformed TaigaControl.");
+	}
+}
+
+bool TaigaControl::fresh()
+{
+	switch(type)
+	{
+		case TaigaControlType::kbutton:
+			return key.fresh(enumeration);
+
+		case TaigaControlType::mbutton:
+			return mouse.fresh(enumeration);
+
+		default:
+			fatal_error("Polled a malformed TaigaControl.");
+	}
+}
+
+bool TaigaControl::up()
+{
+	switch(type)
+	{
+		case TaigaControlType::kbutton:
+			return key.up(enumeration);
+
+		case TaigaControlType::mbutton:
+			return mouse.up(enumeration);
+
+		default:
+			fatal_error("Polled a malformed TaigaControl.");
+	}
+}
+
+bool TaigaControl::freshup()
+{
+	switch(type)
+	{
+		case TaigaControlType::kbutton:
+			return key.freshup(enumeration);
+
+		case TaigaControlType::mbutton:
+			return mouse.freshup(enumeration);
+
+		default:
+			fatal_error("Polled a malformed TaigaControl.");
+	}
+}
