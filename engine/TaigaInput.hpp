@@ -134,7 +134,4 @@ class TaigaControl
 		bool freshup();
 };
 
-extern TaigaKeyboard key;
-extern TaigaMouse mouse;
-
 #endif

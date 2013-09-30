@@ -280,6 +280,9 @@ int TaigaMouse::scrolldelta()
 //============================================
 //Member functions for the TaigaControl class.
 //============================================
+extern TaigaKeyboard key;	//TaigaControls utilize these objects exclusively.
+extern TaigaMouse mouse;
+
 TaigaControl::TaigaControl(TaigaControlType t, int e)
 {
 	type = t;
