@@ -126,6 +126,7 @@ class TaigaKeybind
 	int enumeration;
 
 	public:
+		TaigaKeybind();
 		TaigaKeybind(TaigaKeybindType t, int e);
 		TaigaKeybind(mousebut mb);
 

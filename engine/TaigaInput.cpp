@@ -283,6 +283,12 @@ int TaigaMouse::scrolldelta()
 extern TaigaKeyboard key;	//TaigaKeybinds utilize these objects exclusively.
 extern TaigaMouse mouse;
 
+TaigaKeybind::TaigaKeybind()
+{
+	type = TaigaKeybindType::none;
+	enumeration = 0;
+}
+
 TaigaKeybind::TaigaKeybind(TaigaKeybindType t, int e)
 {
 	type = t;
