@@ -278,79 +278,79 @@ int TaigaMouse::scrolldelta()
 }
 
 //============================================
-//Member functions for the TaigaControl class.
+//Member functions for the TaigaKeybind class.
 //============================================
-extern TaigaKeyboard key;	//TaigaControls utilize these objects exclusively.
+extern TaigaKeyboard key;	//TaigaKeybinds utilize these objects exclusively.
 extern TaigaMouse mouse;
 
-TaigaControl::TaigaControl(TaigaControlType t, int e)
+TaigaKeybind::TaigaKeybind(TaigaKeybindType t, int e)
 {
 	type = t;
 	enumeration = e;
 }
 
-TaigaControl::TaigaControl(mousebut mb)
+TaigaKeybind::TaigaKeybind(mousebut mb)
 {
-	type = TaigaControlType::mbutton;
+	type = TaigaKeybindType::mbutton;
 	enumeration = (int)mb;
 }
 
-bool TaigaControl::down()
+bool TaigaKeybind::down()
 {
 	switch(type)
 	{
-		case TaigaControlType::kbutton:
+		case TaigaKeybindType::kbutton:
 			return key.down(enumeration);
 
-		case TaigaControlType::mbutton:
+		case TaigaKeybindType::mbutton:
 			return mouse.down(enumeration);
 
 		default:
-			fatal_error("Polled a malformed TaigaControl.");
+			fatal_error("Polled a malformed TaigaKeybind.");
 	}
 }
 
-bool TaigaControl::fresh()
+bool TaigaKeybind::fresh()
 {
 	switch(type)
 	{
-		case TaigaControlType::kbutton:
+		case TaigaKeybindType::kbutton:
 			return key.fresh(enumeration);
 
-		case TaigaControlType::mbutton:
+		case TaigaKeybindType::mbutton:
 			return mouse.fresh(enumeration);
 
 		default:
-			fatal_error("Polled a malformed TaigaControl.");
+			fatal_error("Polled a malformed TaigaKeybind.");
 	}
 }
 
-bool TaigaControl::up()
+bool TaigaKeybind::up()
 {
 	switch(type)
 	{
-		case TaigaControlType::kbutton:
+		case TaigaKeybindType::kbutton:
 			return key.up(enumeration);
 
-		case TaigaControlType::mbutton:
+		case TaigaKeybindType::mbutton:
 			return mouse.up(enumeration);
 
 		default:
-			fatal_error("Polled a malformed TaigaControl.");
+			fatal_error("Polled a malformed TaigaKeybind.");
 	}
 }
 
-bool TaigaControl::freshup()
+bool TaigaKeybind::freshup()
 {
 	switch(type)
 	{
-		case TaigaControlType::kbutton:
+		case TaigaKeybindType::kbutton:
 			return key.freshup(enumeration);
 
-		case TaigaControlType::mbutton:
+		case TaigaKeybindType::mbutton:
 			return mouse.freshup(enumeration);
 
 		default:
-			fatal_error("Polled a malformed TaigaControl.");
+			fatal_error("Polled a malformed TaigaKeybind.");
 	}
 }

@@ -35,8 +35,8 @@ enum class mousebut
 };
 
 //An enum that represents the different control types
-//that a TaigaControl can have.
-enum class TaigaControlType
+//that a TaigaKeybind can have.
+enum class TaigaKeybindType
 {
 	mbutton,
 	kbutton
@@ -119,14 +119,14 @@ class TaigaMouse
 		void clear();	//Automatically releases all mousebuttons.
 };
 
-class TaigaControl
+class TaigaKeybind
 {
-	TaigaControlType type;
+	TaigaKeybindType type;
 	int enumeration;
 
 	public:
-		TaigaControl(TaigaControlType t, int e);
-		TaigaControl(mousebut mb);
+		TaigaKeybind(TaigaKeybindType t, int e);
+		TaigaKeybind(mousebut mb);
 
 		bool down();
 		bool fresh();
