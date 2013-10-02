@@ -305,6 +305,9 @@ bool TaigaKeybind::down()
 		case TaigaKeybindType::mbutton:
 			return mouse.down(enumeration);
 
+		case TaigaKeybindType::none:
+			return false;
+
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
 	}
@@ -319,6 +322,9 @@ bool TaigaKeybind::fresh()
 
 		case TaigaKeybindType::mbutton:
 			return mouse.fresh(enumeration);
+
+		case TaigaKeybindType::none:
+			return false;
 
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
@@ -335,6 +341,9 @@ bool TaigaKeybind::up()
 		case TaigaKeybindType::mbutton:
 			return mouse.up(enumeration);
 
+		case TaigaKeybindType::none:
+			return true;
+
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
 	}
@@ -349,6 +358,9 @@ bool TaigaKeybind::freshup()
 
 		case TaigaKeybindType::mbutton:
 			return mouse.freshup(enumeration);
+
+		case TaigaKeybindType::none:
+			return false;
 
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");

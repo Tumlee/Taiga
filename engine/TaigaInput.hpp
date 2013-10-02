@@ -38,6 +38,7 @@ enum class mousebut
 //that a TaigaKeybind can have.
 enum class TaigaKeybindType
 {
+	none,
 	mbutton,
 	kbutton
 };
