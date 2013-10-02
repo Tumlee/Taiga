@@ -301,6 +301,16 @@ TaigaKeybind::TaigaKeybind(mousebut mb)
 	enumeration = (int)mb;
 }
 
+bool TaigaKeybind::operator==(const TaigaKeybind& other)
+{
+	return type == other.type && enumeration == other.enumeration;
+}
+
+bool TaigaKeybind::operator!=(const TaigaKeybind& other)
+{
+	return !(*this == other);
+}
+
 bool TaigaKeybind::down()
 {
 	switch(type)

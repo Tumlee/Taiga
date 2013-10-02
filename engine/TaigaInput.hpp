@@ -130,6 +130,9 @@ class TaigaKeybind
 		TaigaKeybind(TaigaKeybindType t, int e);
 		TaigaKeybind(mousebut mb);
 
+		bool operator==(const TaigaKeybind& other);
+		bool operator!=(const TaigaKeybind& other);
+
 		bool down();
 		bool fresh();
 		bool up();
