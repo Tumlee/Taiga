@@ -5,6 +5,7 @@
 #include "TaigaActorList.hpp"
 #include "TaigaInput.hpp"
 #include "TaigaSound.hpp"
+#include "TaigaConfig.hpp"
 
 extern TaigaKeyboard key;
 extern TaigaMouse mouse;
