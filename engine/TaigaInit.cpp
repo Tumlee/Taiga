@@ -33,6 +33,8 @@ void TaigaInit(TaigaInitSettings settings)
 	init_subsystem(al_init_primitives_addon(), "initialize Allegro primitives addon.");
 
 	//Set up the event queue and start up graphics, audio, and input.
+	al_set_new_display_flags(settings.display_flags);
+
     init_subsystem((taiga_events = al_create_event_queue()), "create an event queue.");
 	init_subsystem((taiga_display = al_create_display(settings.width, settings.height)), "create a display.");
 	init_subsystem(al_install_keyboard(), "install keyboard for Allegro.");
