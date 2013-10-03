@@ -57,6 +57,9 @@ void TaigaInit(TaigaInitSettings settings)
 	PHYSFS_init(global_argv[0]);
 	PHYSFS_mount((settings.gametitle + ".trp").data(), "resources", 0);
 	PHYSFS_mount("resources", "resources", 0);
+	PHYSFS_mount(PHYSFS_getBaseDir(), "", 0);
+	PHYSFS_setWriteDir(PHYSFS_getBaseDir());
+
 	al_set_physfs_file_interface();
 
 	//Clear the display and register it as an event source.
