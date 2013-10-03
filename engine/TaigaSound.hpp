@@ -13,4 +13,8 @@ void TaigaPlaySound(ALLEGRO_SAMPLE* sound, float volume = 1.0, float pan = 0.0, 
 //Stops the current music, equivalent to TaigaPlayMusic(nullptr)
 void TaigaStopMusic();
 
+//Sets the sound and music volume, respectively. Starts at 1.0
+void TaigaSetMusicVolume(float volume);
+void TaigaSetSoundVolume(float volume);
+
 #endif
