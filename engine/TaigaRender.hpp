@@ -147,6 +147,4 @@ int display_height();
 //Sets the given bitmap as your cursor, with hotspot x, y.
 void set_cursor(ALLEGRO_BITMAP* image, int x = 0, int y = 0);
 
-extern TaigaLayerList canvas;
-
 #endif
