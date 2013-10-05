@@ -58,7 +58,12 @@ void TaigaInit(TaigaInitSettings settings)
 	//Set up physfs and use the your .trp as a "resources" folder.
 	PHYSFS_init(global_argv[0]);
 	PHYSFS_mount((settings.gametitle + ".trp").data(), "resources", 0);
+
+	//Mount the actual resources folder as your resources folder as well.
 	PHYSFS_mount("resources", "resources", 0);
+
+	//Allow reading and writing from the base directory, as this is
+	//necessary for reading and writing of INIs and save files.
 	PHYSFS_mount(PHYSFS_getBaseDir(), "", 0);
 	PHYSFS_setWriteDir(PHYSFS_getBaseDir());
 

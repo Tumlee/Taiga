@@ -275,6 +275,7 @@ void set_cursor(ALLEGRO_BITMAP* image, int x, int y)
 {
 	static ALLEGRO_MOUSE_CURSOR* cur_cursor = nullptr;
 
+	//Destroy the current cursor if there is one.
 	if(cur_cursor)
 		al_destroy_mouse_cursor(cur_cursor);
 

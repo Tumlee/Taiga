@@ -6,7 +6,7 @@ using std::string;
 using std::to_string;
 using std::vector;
 
-//FIXME: Move to TaigaIniNames.hpp
+//A TaigaKeybind/string pair for identifying a control by name.
 class TaigaNamedBind
 {
 	public:
@@ -16,6 +16,7 @@ class TaigaNamedBind
 
 vector<TaigaNamedBind> keybindnames;
 
+//Adds a new keyboard key to the list of keybind names.
 static void add_keyname(int key, string name)
 {
 	TaigaNamedBind newcon;
@@ -25,6 +26,7 @@ static void add_keyname(int key, string name)
 	keybindnames.push_back(newcon);
 }
 
+//Adds a new mouse button to the list of keybind names.
 static void add_mousename(int butnum, string name)
 {
 	TaigaNamedBind newcon;
@@ -51,6 +53,7 @@ static void generate_keybindnames()
 	for(int k = ALLEGRO_KEY_F1; k <= ALLEGRO_KEY_F12; k++)
 		add_keyname(k, "f" + to_string(k + 1 - ALLEGRO_KEY_F1));
 
+	//Keypad number keys.
 	for(int k = ALLEGRO_KEY_PAD_0; k <= ALLEGRO_KEY_PAD_9; k++)
 		add_keyname(k, "kp" + to_string(k - ALLEGRO_KEY_PAD_0));
 
@@ -100,6 +103,8 @@ static void generate_keybindnames()
 	add_keyname(ALLEGRO_KEY_ALTGR, "ralt");
 	add_keyname(ALLEGRO_KEY_PAD_EQUALS, "kp=");
 
+	//All the mouse buttons are referred to by number.
+	//Sixteen mouse buttons ought to be enough for anybody.
 	for(int mb = 0; mb < 16; mb++)
 		add_mousename(mb, "mouse" + to_string(mb + 1));
 }
@@ -108,6 +113,8 @@ static void generate_keybindnames()
 //the correct keybind, if there is one.
 TaigaKeybind translate_keybind(string name)
 {
+	//Generate the list of keybind names if it
+	//hasn't already been done.
 	if(keybindnames.empty())
 		generate_keybindnames();
 
@@ -137,6 +144,8 @@ string to_string(TaigaKeybind keybind)
 	return "(none)";
 }
 
+//Utilities for translating boolean values
+//to and from strings.
 bool translate_bool(string name)
 {
 	return name == "true";

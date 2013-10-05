@@ -66,6 +66,9 @@ class TaigaActorList
 			return nullptr;
 		}
 
+		//Clear all actors of a given type from the TaigaActorList.
+		//This is not a safe operation when it's in the middle of
+		//it's tick() function, so that has been disabled.
 		template <class T = TaigaActor> void clear()
 		{
 			if(ticking)

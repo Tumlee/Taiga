@@ -285,6 +285,7 @@ extern TaigaMouse mouse;
 
 TaigaKeybind::TaigaKeybind()
 {
+	//By default, a keybind doesn't refer to anything.
 	type = TaigaKeybindType::none;
 	enumeration = 0;
 }
@@ -311,6 +312,14 @@ bool TaigaKeybind::operator!=(const TaigaKeybind& other)
 	return !(*this == other);
 }
 
+//=======================================================================
+//It probably isn't possible for 'type' to be anything
+//outside of the TaigaKeyBindType enum, except through memory corruption
+//or something similar.
+//
+//Whenever a type of TaigaKeybindType::none is detected, it is treated
+//as if it is constantly keystate::up.
+//=======================================================================
 bool TaigaKeybind::down()
 {
 	switch(type)

@@ -1,5 +1,8 @@
 #include "TaigaSound.hpp"
 
+//A global "sound volume" that can be set by the user.
+//All sounds played by TaigaPlaySound() and TaigaPlayMusic()
+//have their volumes multiplied by these values.
 float taiga_music_volume = 1.0;
 float taiga_sound_volume = 1.0;
 

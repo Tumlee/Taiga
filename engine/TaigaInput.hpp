@@ -120,9 +120,16 @@ class TaigaMouse
 		void clear();	//Automatically releases all mousebuttons.
 };
 
+//A TaigaKeybind object can represent either a mouse button or
+//a key on the keyboard --- it is used for user-customizable controls.
+//For example, if a keyboard is customizable
 class TaigaKeybind
 {
+	//The type of control that this key binding represents, like
+	//a mouse button or a key.
 	TaigaKeybindType type;
+
+	//Which key or clicker the keybind refers to.
 	int enumeration;
 
 	public:
@@ -133,6 +140,8 @@ class TaigaKeybind
 		bool operator==(const TaigaKeybind& other);
 		bool operator!=(const TaigaKeybind& other);
 
+	//Returns information regarding the keystate of the control
+	//that this keybind refers to.
 		bool down();
 		bool fresh();
 		bool up();

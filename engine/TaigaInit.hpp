@@ -6,6 +6,8 @@
 #include "TaigaCommon.hpp"
 #include "TaigaActorList.hpp"
 
+//A class that contains all the information that TaigaInit()
+//requires in order to start up the game.
 class TaigaInitSettings
 {
 	public:
