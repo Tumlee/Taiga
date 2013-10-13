@@ -5,6 +5,9 @@ using std::string;
 
 bool resources_required = false;
 
+ALLEGRO_STATE old_file_interface;
+bool file_interface_saved = false;
+
 void set_resources_required(bool setting)
 {
 	resources_required = setting;
@@ -52,10 +55,18 @@ ALLEGRO_FONT* load_font(string resname, int size, int flags)
 
 void TaigaDisablePhysfs()
 {
+	//Don't re-disable Physfs if it's already disabled.
+	if(file_interface_saved)
+		return;
+
+	al_store_state(&old_file_interface, ALLEGRO_STATE_NEW_FILE_INTERFACE);
+	file_interface_saved = true;
+
 	al_set_standard_file_interface();
 }
 
-void TaigaEnablePhysfs()
+void TaigaResetFileInterface()
 {
-	al_set_physfs_file_interface();
+	al_restore_state(&old_file_interface);
+	file_interface_saved = true;
 }

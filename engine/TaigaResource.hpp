@@ -49,8 +49,8 @@ ALLEGRO_FONT* load_font(std::string resname, int size, int flags = 0);
 //dropped when saving a text file.
 void TaigaDisablePhysfs();
 
-//Instructs the game to turn physfs back on. You typically want to do
-//this when you want to start loading data out of your .trp file again.
-void TaigaEnablePhysfs();
+//Instructs the game to restore whatever file interface was being used
+//before the call to TaigaDisablePhysfs()
+void TaigaResetFileInterface();
 
 #endif
