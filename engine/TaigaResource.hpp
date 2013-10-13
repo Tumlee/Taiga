@@ -42,4 +42,15 @@ ALLEGRO_SAMPLE* load_sample(std::string resname);
 //the 'size' and 'flags' parameters, see al_load_ttf_font()
 ALLEGRO_FONT* load_font(std::string resname, int size, int flags = 0);
 
+//Instructs the game to not use physfs for any upcoming file operations
+//until it is reenabled. The reason this function is required is because
+//physfs, for some stupid reason, forces all files to be saved in binary
+//mode. Use this to ensure line endings on your file aren't being
+//dropped when saving a text file.
+void TaigaDisablePhysfs();
+
+//Instructs the game to turn physfs back on. You typically want to do
+//this when you want to start loading data out of your .trp file again.
+void TaigaEnablePhysfs();
+
 #endif

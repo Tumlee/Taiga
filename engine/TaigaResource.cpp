@@ -49,3 +49,13 @@ ALLEGRO_FONT* load_font(string resname, int size, int flags)
 
 	return result;
 }
+
+void TaigaDisablePhysfs()
+{
+	al_set_standard_file_interface();
+}
+
+void TaigaEnablePhysfs()
+{
+	al_set_physfs_file_interface();
+}
