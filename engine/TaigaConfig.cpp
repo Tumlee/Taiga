@@ -1,5 +1,6 @@
 #include "TaigaConfig.hpp"
 #include "TaigaConfigNames.hpp"
+#include "TaigaResource.hpp"
 
 using std::string;
 using std::vector;
@@ -9,7 +10,13 @@ using std::to_string;
 
 bool TaigaConfig::load(string filename)
 {
+	//Disable physfs, because it causes plaintext files to become
+	//malformed under Windows.
+	TaigaDisablePhysfs();
 	ALLEGRO_CONFIG* config = al_load_config_file(filename.data());
+
+	//Restore the old file interface when we're done loading.
+	TaigaResetFileInterface();
 
 	if(config == nullptr)	//Failed to load the config.
 		return false;
@@ -18,6 +25,7 @@ bool TaigaConfig::load(string filename)
 		setting->load(config);
 
 	al_destroy_config(config);
+
 	return true;
 }
 
@@ -33,7 +41,9 @@ bool TaigaConfig::save(string filename)
 
 	//Attempt to save the config file, storing the result
 	//so it can be reported back to the caller of TaigaConfig::save()
+	TaigaDisablePhysfs();
 	bool result = al_save_config_file(filename.data(), config);
+	TaigaResetFileInterface();
 
 	al_destroy_config(config);
 	return result;
