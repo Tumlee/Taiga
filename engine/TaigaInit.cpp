@@ -55,6 +55,12 @@ void TaigaInit(TaigaInitSettings settings)
 		al_register_event_source(taiga_events, al_get_timer_event_source(taiga_frametimer));
 	}
 
+	//Ensure the game is working from the same directory that the executable resides in.
+	//If the user wishes to circumvent this, they will still be able to do so with their
+	//own call to al_change_directory().
+	auto path = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
+	al_change_directory(al_path_cstr(path, ALLEGRO_NATIVE_PATH_SEP));
+
 	//Set up physfs and use the your .trp as a "resources" folder.
 	PHYSFS_init(global_argv[0]);
 	PHYSFS_mount((settings.gametitle + ".trp").data(), "resources", 0);
