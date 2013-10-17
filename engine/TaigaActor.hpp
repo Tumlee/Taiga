@@ -22,6 +22,11 @@ class TaigaActor
 	//the container's member functions directly (saving keystrokes).
 		void spawn(TaigaActor* actor);					//See TaigaActorList::spawn()
 
+	//Destructor for the TaigaActor class. It doesn't do anything, but
+	//is required in order to ensure user-created actor's destructors
+	//work properly.
+		virtual ~TaigaActor();
+
 	//========================================================================
 	//See the note on TaigaActorList::first() and TaigaActorList::next().
 	//Because of these member functions, the example loop when inside a member
