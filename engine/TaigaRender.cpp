@@ -140,6 +140,14 @@ void TaigaLayerList::clear_screenshot()
 }
 
 //===========================================
+//Member functions for the TaigaDrawer class.
+//===========================================
+TaigaDrawer::~TaigaDrawer()
+{
+	return;
+}
+
+//===========================================
 //Member functions for the TaigaSprite class.
 //===========================================
 TaigaSprite::TaigaSprite()

@@ -21,6 +21,7 @@ class TaigaDrawer
 	public:
 		int x, y;
 		virtual void draw() = 0;
+		virtual ~TaigaDrawer();
 };
 
 //A camera that can be applied to a layer. It essentially
