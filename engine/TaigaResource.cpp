@@ -68,5 +68,5 @@ void TaigaDisablePhysfs()
 void TaigaResetFileInterface()
 {
 	al_restore_state(&old_file_interface);
-	file_interface_saved = true;
+	file_interface_saved = false;
 }
