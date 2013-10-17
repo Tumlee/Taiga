@@ -18,6 +18,8 @@ class TaigaConfigSetting
 
 		virtual void load(ALLEGRO_CONFIG* config) = 0;
 		virtual void save(ALLEGRO_CONFIG* config) = 0;
+
+		virtual ~TaigaConfigSetting();
 };
 
 class TaigaConfigBool : public TaigaConfigSetting

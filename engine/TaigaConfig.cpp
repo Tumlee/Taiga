@@ -123,6 +123,12 @@ void TaigaConfig::add_setting(TaigaKeybind* setting, string section, string key)
 	settings.push_back(newset);
 }
 
+TaigaConfigSetting::~TaigaConfigSetting()
+{
+	//TaigaConfigSettings don't allocate any data by default.
+	return;
+}
+
 void TaigaConfigInt::load(ALLEGRO_CONFIG* config)
 {
 	const char* val = al_get_config_value(config, sectionname.data(), keyname.data());
