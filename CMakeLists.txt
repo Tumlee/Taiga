@@ -5,7 +5,7 @@
 #some other method for building for now.
 cmake_minimum_required (VERSION 2.6)
 project (taiga)
-set(CMAKE_CXX_FLAGS "-std=c++0x -O3 -s")
+set(CMAKE_CXX_FLAGS "-std=c++0x -O3 -s -Wall")
 
 #Includes
 include_directories("${PROJECT_SOURCE_DIR}/engine")
