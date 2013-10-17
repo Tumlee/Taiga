@@ -81,7 +81,7 @@ void TaigaLayerList::draw_entries()
 	{
 		layers[i].draw_entries();
 
-		if(screenshot_request == i)
+		if((size_t)screenshot_request == i)
 		{
 			screenshot = al_clone_bitmap(target);
 			screenshot_request = -2;
@@ -127,7 +127,7 @@ void TaigaLayerList::request_screenshot(int layer)
 		layer = layers.size() - 1;
 
 	//Invalid screenshot request?
-	if(layer >= layers.size())
+	if((size_t)layer >= layers.size())
 		return;
 
 	screenshot_request = layer;
