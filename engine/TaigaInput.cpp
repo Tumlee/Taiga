@@ -335,6 +335,7 @@ bool TaigaKeybind::down()
 
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
+			return false;	//Never reached --- purely to shut up compiler warning.
 	}
 }
 
@@ -353,6 +354,7 @@ bool TaigaKeybind::fresh()
 
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
+			return false;
 	}
 }
 
@@ -371,6 +373,7 @@ bool TaigaKeybind::up()
 
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
+			return false;
 	}
 }
 
@@ -389,5 +392,6 @@ bool TaigaKeybind::freshup()
 
 		default:
 			fatal_error("Polled a malformed TaigaKeybind.");
+			return false;
 	}
 }
